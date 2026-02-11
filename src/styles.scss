@@ -1,1 +1,139 @@
-/* You can add global styles to this file, and also import other style files */
+/* =============================================
+   BHUSHAN POWAR - PORTFOLIO GLOBAL STYLES
+   Dark Futuristic Theme
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap');
+
+:root {
+  --bg-dark: #080b14;
+  --bg-card: #0d1220;
+  --bg-card-hover: #111827;
+  --accent-primary: #00f5d4;
+  --accent-secondary: #7c3aed;
+  --accent-glow: rgba(0, 245, 212, 0.15);
+  --text-primary: #e2e8f0;
+  --text-muted: #64748b;
+  --text-dim: #94a3b8;
+  --border: rgba(0, 245, 212, 0.12);
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--accent-primary); border-radius: 10px; }
+
+/* Selection */
+::selection {
+  background: var(--accent-primary);
+  color: var(--bg-dark);
+}
+
+/* Section common styles */
+section {
+  padding: 100px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+
+  span {
+    color: var(--accent-primary);
+  }
+}
+
+.section-line {
+  width: 60px;
+  height: 3px;
+  background: var(--accent-primary);
+  margin-bottom: 60px;
+  box-shadow: 0 0 12px var(--accent-primary);
+}
+
+/* Glowing button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: transparent;
+  border: 1.5px solid var(--accent-primary);
+  color: var(--accent-primary);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent-primary);
+    transform: translateX(-101%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: var(--bg-dark);
+    box-shadow: 0 0 30px rgba(0, 245, 212, 0.4);
+    &::before { transform: translateX(0); }
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(0, 245, 212, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(0, 245, 212, 0.7); }
+}

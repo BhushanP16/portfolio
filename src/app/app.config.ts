@@ -1,11 +1,16 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+// app.config.ts
+// Angular application configuration
+// हे Angular 17+ मध्ये required आहे
+
+import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
-import { routes } from './app.routes';
+// Angular Animations साठी
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes)
+    provideRouter([]),      // Routes नाहीत - single page आहे
+    provideAnimations(),    // Animations enable
   ]
 };
